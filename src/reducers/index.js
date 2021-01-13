@@ -3,5 +3,5 @@ import { combineReducers } from "redux";
 import moviesReducer from "./moviesReducer";
 
 export default combineReducers({
-  products: moviesReducer,
+  movies: moviesReducer,
 });
