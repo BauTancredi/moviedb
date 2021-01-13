@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./components/Header";
-import { Grid } from "@material-ui/core";
+import MoviesContainer from "./components/MoviesContainer";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -27,21 +27,8 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Grid container justify="center">
-          {!loading &&
-            movies.map((movie) => (
-              <Grid item style={{ margin: "1em" }}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                  alt=""
-                  width="100%"
-                />
-              </Grid>
-            ))}
-        </Grid>
-      </div>
+      <Header />
+      <MoviesContainer movies={movies} loading={loading} />
     </Provider>
   );
 }
