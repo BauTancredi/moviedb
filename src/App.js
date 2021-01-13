@@ -3,6 +3,9 @@ import axios from "axios";
 import Header from "./components/Header";
 import { Grid } from "@material-ui/core";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -15,7 +18,6 @@ function App() {
         const response = await axios.get(URL);
         setMovies(response.data.results);
         setLoading(false);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -24,21 +26,23 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <Grid container justify="center">
-        {!loading &&
-          movies.map((movie) => (
-            <Grid item style={{ margin: "1em" }}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                alt=""
-                width="100%"
-              />
-            </Grid>
-          ))}
-      </Grid>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Header />
+        <Grid container justify="center">
+          {!loading &&
+            movies.map((movie) => (
+              <Grid item style={{ margin: "1em" }}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                  alt=""
+                  width="100%"
+                />
+              </Grid>
+            ))}
+        </Grid>
+      </div>
+    </Provider>
   );
 }
 
