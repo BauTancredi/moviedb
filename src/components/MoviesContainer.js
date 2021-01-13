@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPopularMovies } from "../actions/moviesActions";
+import MovieCard from "./MovieCard";
 
 const MoviesContainer = (props) => {
   const disptach = useDispatch();
@@ -19,15 +20,7 @@ const MoviesContainer = (props) => {
       {movies.length === 0 ? (
         <CircularProgress />
       ) : (
-        movies.map((movie, index) => (
-          <Grid item style={{ margin: "1em" }} key={index}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-              alt=""
-              width="100%"
-            />
-          </Grid>
-        ))
+        movies.map((movie, index) => <MovieCard key={index} movie={movie} />)
       )}
     </Grid>
   );
