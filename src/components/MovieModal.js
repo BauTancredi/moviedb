@@ -4,6 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMovieModal } from "../actions/moviesActions";
 import { Dialog, IconButton, Grid, Slide } from "@material-ui/core";
+import styled from "styled-components";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -16,6 +17,19 @@ const useStyles = makeStyles((theme) => ({
     right: ".5em",
   },
 }));
+
+const H1 = styled.h1`
+  text-align: center;
+`;
+
+const POverview = styled.p`
+  max-width: 25em;
+  text-align: center;
+`;
+
+const PBold = styled.p`
+  font-weight: bold;
+`;
 
 const MovieModal = (props) => {
   const disptach = useDispatch();
@@ -41,20 +55,16 @@ const MovieModal = (props) => {
         <Grid item container md>
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-            alt=""
+            alt="movie poster"
             width="100%"
             height="100%"
           />
         </Grid>
         <Grid item container direction="column" md alignItems="center">
-          <h1 style={{ textAlign: "center" }}>{movie.title}</h1>
-          <p style={{ maxWidth: "25em", textAlign: "center" }}>
-            {movie.overview}
-          </p>
-          <p style={{ fontWeight: "bold" }}>
-            Release date: {movie.release_date}
-          </p>
-          <p style={{ fontWeight: "bold" }}>Rating: {movie.vote_average}</p>
+          <H1>{movie.title}</H1>
+          <POverview>{movie.overview}</POverview>
+          <PBold>Release date: {movie.release_date}</PBold>
+          <PBold>Rating: {movie.vote_average}</PBold>
         </Grid>
       </Grid>
       <IconButton className={classes.closeIcon} onClick={handleClose}>

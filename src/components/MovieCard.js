@@ -10,7 +10,7 @@ const MovieCard = (props) => {
     <Grid item style={{ margin: "1em", cursor: "pointer" }}>
       <img
         src={`https://image.tmdb.org/t/p/w500/${props.movie.backdrop_path}`}
-        alt=""
+        alt="movie poster"
         width="100%"
         onClick={() => disptach(openMovieModal(props.movie))}
       />
