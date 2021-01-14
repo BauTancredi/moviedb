@@ -66,7 +66,13 @@ const MovieModal = (props) => {
           <H1>{movie.title}</H1>
           <POverview>{movie.overview}</POverview>
           <PBold>Release date: {movie.release_date}</PBold>
-          <PBold>Rating: {movie.vote_average}</PBold>
+
+          <PBold>
+            Rating:
+            {new Date(movie.release_date) > new Date()
+              ? " Not available"
+              : movie.vote_average}
+          </PBold>
         </Grid>
       </Grid>
       <IconButton className={classes.closeIcon} onClick={handleClose}>
