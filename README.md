@@ -9,6 +9,8 @@ Users can search for movies or discover new ones based on the rating of the movi
 ## Getting Started
 
 ```
+git clone https://github.com/BauTancredi/moviedb.git
+cd moviedb
 npm install
 npm start
 ```
