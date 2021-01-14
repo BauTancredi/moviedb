@@ -7,3 +7,4 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const SET_MODAL_MOVIE = "SET_MODAL_MOVIE";
 
 export const SET_RATING = "SET_RATING";
+export const SET_QUERY = "SET_QUERY";

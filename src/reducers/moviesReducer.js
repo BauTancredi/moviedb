@@ -6,6 +6,7 @@ import {
   CLOSE_MODAL,
   SET_MODAL_MOVIE,
   SET_RATING,
+  SET_QUERY,
 } from "../types";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   movie: "",
   open: false,
   rating: null,
+  query: "",
 };
 
 //eslint-disable-next-line
@@ -45,6 +47,8 @@ export default function (state = initialState, action) {
       return { ...state, open: action.payload };
     case SET_RATING:
       return { ...state, rating: action.payload };
+    case SET_QUERY:
+      return { ...state, query: action.payload };
 
     default:
       return state;

@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { Box } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import styled from "styled-components";
-import { updateRating, fetchMovies } from "../actions/moviesActions";
+import {
+  updateRating,
+  fetchMovies,
+  updateQuery,
+} from "../actions/moviesActions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Div = styled.div`
@@ -30,6 +34,7 @@ const RatingFilter = () => {
           value={rating}
           onChange={(event, newValue) => {
             disptach(updateRating(newValue));
+            disptach(updateQuery(""));
           }}
         />
       </Box>

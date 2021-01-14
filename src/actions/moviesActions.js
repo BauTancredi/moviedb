@@ -7,6 +7,7 @@ import {
   CLOSE_MODAL,
   SET_MODAL_MOVIE,
   SET_RATING,
+  SET_QUERY,
 } from "../types";
 
 export function fetchMovies(rating) {
@@ -105,3 +106,36 @@ const setRating = (rating) => ({
   type: SET_RATING,
   payload: rating,
 });
+
+export function updateQuery(query) {
+  return (disptach) => {
+    disptach(setQuery(query));
+  };
+}
+
+const setQuery = (query) => ({
+  type: SET_QUERY,
+  payload: query,
+});
+
+export function searchMovie(query) {
+  return async (disptach) => {
+    disptach(fetchMoviesStart());
+    let URL;
+    if (query !== "") {
+      URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`;
+    } else {
+      URL = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+    }
+
+    try {
+      const response = await axios.get(URL);
+
+      // Update state success
+      disptach(fetchMoviesSuccess(response.data.results));
+    } catch (error) {
+      console.log(error);
+      disptach(fetchMoviesError(true));
+    }
+  };
+}
