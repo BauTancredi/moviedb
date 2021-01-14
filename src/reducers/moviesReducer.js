@@ -2,12 +2,17 @@ import {
   FETCH_POPULAR_MOVIES,
   FETCH_POPULAR_MOVIES_SUCCESS,
   FETCH_POPULAR_MOVIES_ERROR,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  SET_MODAL_MOVIE,
 } from "../types";
 
 const initialState = {
   movies: [],
   error: null,
   loading: true,
+  movie: "",
+  open: false,
 };
 
 //eslint-disable-next-line
@@ -30,6 +35,12 @@ export default function (state = initialState, action) {
         loading: false,
         error: action.payload,
       };
+    case SET_MODAL_MOVIE:
+      return { ...state, movie: action.payload };
+    case OPEN_MODAL:
+      return { ...state, open: action.payload };
+    case CLOSE_MODAL:
+      return { ...state, open: action.payload };
 
     default:
       return state;

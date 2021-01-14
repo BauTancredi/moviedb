@@ -3,6 +3,9 @@ import {
   FETCH_POPULAR_MOVIES,
   FETCH_POPULAR_MOVIES_SUCCESS,
   FETCH_POPULAR_MOVIES_ERROR,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  SET_MODAL_MOVIE,
 } from "../types";
 
 export function fetchPopularMovies() {
@@ -36,4 +39,33 @@ const fetchMoviesSuccess = (movies) => ({
 const fetchMoviesError = (status) => ({
   type: FETCH_POPULAR_MOVIES_ERROR,
   payload: status,
+});
+
+export function openMovieModal(movie) {
+  return (disptach) => {
+    disptach(setMovie(movie));
+    disptach(openModal());
+  };
+}
+
+export function closeMovieModal() {
+  return (disptach) => {
+    disptach(closeModal());
+    disptach(setMovie(""));
+  };
+}
+
+const openModal = () => ({
+  type: OPEN_MODAL,
+  payload: true,
+});
+
+const closeModal = () => ({
+  type: CLOSE_MODAL,
+  payload: false,
+});
+
+const setMovie = (movie) => ({
+  type: SET_MODAL_MOVIE,
+  payload: movie,
 });
