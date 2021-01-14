@@ -1,7 +1,7 @@
 import {
-  FETCH_POPULAR_MOVIES,
-  FETCH_POPULAR_MOVIES_SUCCESS,
-  FETCH_POPULAR_MOVIES_ERROR,
+  FETCH_MOVIES,
+  FETCH_MOVIES_SUCCESS,
+  FETCH_MOVIES_ERROR,
   OPEN_MODAL,
   CLOSE_MODAL,
   SET_MODAL_MOVIE,
@@ -20,18 +20,18 @@ const initialState = {
 //eslint-disable-next-line
 export default function (state = initialState, action) {
   switch (action.type) {
-    case FETCH_POPULAR_MOVIES:
+    case FETCH_MOVIES:
       return {
         ...state,
         loading: action.payload,
       };
-    case FETCH_POPULAR_MOVIES_SUCCESS:
+    case FETCH_MOVIES_SUCCESS:
       return {
         ...state,
         loading: false,
         movies: action.payload,
       };
-    case FETCH_POPULAR_MOVIES_ERROR:
+    case FETCH_MOVIES_ERROR:
       return {
         ...state,
         loading: false,

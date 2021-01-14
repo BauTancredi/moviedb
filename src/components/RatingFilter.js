@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Box } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import styled from "styled-components";
-import { updateRating, fetchRatedMovies } from "../actions/moviesActions";
+import { updateRating, fetchMovies } from "../actions/moviesActions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Div = styled.div`
@@ -17,7 +17,7 @@ const RatingFilter = () => {
   const rating = useSelector((state) => state.movies.rating);
 
   useEffect(() => {
-    const loadMovies = () => disptach(fetchRatedMovies(rating));
+    const loadMovies = () => disptach(fetchMovies(rating));
     loadMovies();
     //eslint-disable-next-line
   }, [rating]);
