@@ -1,10 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+
+import { Dialog, IconButton, Grid, Slide } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import CloseIcon from "@material-ui/icons/Close";
-import { useDispatch, useSelector } from "react-redux";
+
 import { closeMovieModal } from "../actions/moviesActions";
-import { Dialog, IconButton, Grid, Slide } from "@material-ui/core";
-import styled from "styled-components";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

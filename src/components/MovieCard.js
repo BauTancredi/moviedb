@@ -1,6 +1,8 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+
+import { Grid } from "@material-ui/core";
+
 import { openMovieModal } from "../actions/moviesActions";
 
 const MovieCard = (props) => {

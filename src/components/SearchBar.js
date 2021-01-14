@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button } from "@material-ui/core";
-import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+
+import { TextField, Button } from "@material-ui/core";
+
 import {
   updateQuery,
   searchMovie,

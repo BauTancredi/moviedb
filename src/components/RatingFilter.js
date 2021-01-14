@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+
 import { Box } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
-import styled from "styled-components";
+
 import {
   updateRating,
   fetchMovies,
   updateQuery,
 } from "../actions/moviesActions";
-import { useSelector, useDispatch } from "react-redux";
 
 const Div = styled.div`
   display: flex;
