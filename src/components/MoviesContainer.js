@@ -9,11 +9,14 @@ import MovieModal from "./MovieModal";
 const MoviesContainer = (props) => {
   const movies = useSelector((state) => state.movies.movies);
   const open = useSelector((state) => state.movies.open);
+  const loading = useSelector((state) => state.movies.loading);
 
   return (
     <Grid container justify="center">
-      {movies.length === 0 ? (
+      {loading === true ? (
         <CircularProgress />
+      ) : movies.length === 0 ? (
+        <p>No movies were found</p>
       ) : (
         movies
           .filter((movie) => movie.backdrop_path !== null)
