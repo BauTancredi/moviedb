@@ -3,6 +3,9 @@ import {
   FETCH_MOVIES,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIES_ERROR,
+  SEARCH_MOVIES,
+  SEARCH_MOVIES_SUCCESS,
+  SEARCH_MOVIES_ERROR,
   OPEN_MODAL,
   CLOSE_MODAL,
   SET_MODAL_MOVIE,
@@ -120,7 +123,7 @@ const setQuery = (query) => ({
 
 export function searchMovie(query) {
   return async (disptach) => {
-    disptach(fetchMoviesStart());
+    disptach(searchMoviesStart());
     let URL;
     if (query !== "") {
       URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`;
@@ -132,10 +135,25 @@ export function searchMovie(query) {
       const response = await axios.get(URL);
 
       // Update state success
-      disptach(fetchMoviesSuccess(response.data.results));
+      disptach(searchMoviesSuccess(response.data.results));
     } catch (error) {
       console.log(error);
-      disptach(fetchMoviesError(true));
+      disptach(searchMoviesError(true));
     }
   };
 }
+
+const searchMoviesStart = () => ({
+  type: SEARCH_MOVIES,
+  payload: true,
+});
+
+const searchMoviesSuccess = (movies) => ({
+  type: SEARCH_MOVIES_SUCCESS,
+  payload: movies,
+});
+
+const searchMoviesError = (status) => ({
+  type: SEARCH_MOVIES_ERROR,
+  payload: status,
+});

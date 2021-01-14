@@ -2,6 +2,9 @@ import {
   FETCH_MOVIES,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIES_ERROR,
+  SEARCH_MOVIES,
+  SEARCH_MOVIES_SUCCESS,
+  SEARCH_MOVIES_ERROR,
   OPEN_MODAL,
   CLOSE_MODAL,
   SET_MODAL_MOVIE,
@@ -23,17 +26,20 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_MOVIES:
+    case SEARCH_MOVIES:
       return {
         ...state,
         loading: action.payload,
       };
     case FETCH_MOVIES_SUCCESS:
+    case SEARCH_MOVIES_SUCCESS:
       return {
         ...state,
         loading: false,
         movies: action.payload,
       };
     case FETCH_MOVIES_ERROR:
+    case SEARCH_MOVIES_ERROR:
       return {
         ...state,
         loading: false,

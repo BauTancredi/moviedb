@@ -19,10 +19,13 @@ const RatingFilter = () => {
   const disptach = useDispatch();
 
   const rating = useSelector((state) => state.movies.rating);
+  const query = useSelector((state) => state.movies.query);
 
   useEffect(() => {
-    const loadMovies = () => disptach(fetchMovies(rating));
-    loadMovies();
+    if (query === "") {
+      const loadMovies = () => disptach(fetchMovies(rating));
+      loadMovies();
+    }
     //eslint-disable-next-line
   }, [rating]);
 
