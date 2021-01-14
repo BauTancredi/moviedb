@@ -41,8 +41,8 @@ export function fetchMovies(rating) {
 
     try {
       const response = await axios.get(finalUrl);
+
       // Update state success
-      console.log(response.data.results);
       disptach(fetchMoviesSuccess(response.data.results));
     } catch (error) {
       console.log(error);
