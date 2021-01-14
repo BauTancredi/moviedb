@@ -29,9 +29,17 @@ const SearchBar = () => {
     //eslint-disable-next-line
   }, [rating]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    disptach(updateQuery(query));
+    disptach(updateRating(null));
+    disptach(searchMovie(query));
+  };
+
   return (
     <Div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="standard-basic"
           value={query}
@@ -41,11 +49,7 @@ const SearchBar = () => {
           variant="contained"
           color="primary"
           style={{ marginLeft: "2em" }}
-          onClick={() => {
-            disptach(updateQuery(query));
-            disptach(updateRating(null));
-            disptach(searchMovie(query));
-          }}
+          onClick={handleSubmit}
         >
           SEARCH
         </Button>
