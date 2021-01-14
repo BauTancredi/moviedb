@@ -5,3 +5,5 @@ export const FETCH_POPULAR_MOVIES_ERROR = "FETCH_POPULAR_MOVIES_ERROR";
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 export const SET_MODAL_MOVIE = "SET_MODAL_MOVIE";
+
+export const SET_RATING = "SET_RATING";
