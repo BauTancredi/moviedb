@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
+import { makeStyles } from "@material-ui/styles";
+
 import { TextField, Button } from "@material-ui/core";
 
 import {
@@ -17,7 +19,21 @@ const Div = styled.div`
   margin-bottom: 1em;
 `;
 
-const SearchBar = () => {
+const useStyles = makeStyles((theme) => ({
+  button: {
+    backgroundColor: "#043353",
+    transform: "scale(1)",
+    transition: "transform 330ms ease-in-out",
+    "&:hover": {
+      transform: "scale(1.1)",
+      transition: "transform 330ms ease-in-out",
+      backgroundColor: "#043353",
+    },
+  },
+}));
+
+const SearchBar = (props) => {
+  const classes = useStyles(props);
   const [query, setQuery] = useState("");
   const disptach = useDispatch();
 
@@ -50,6 +66,7 @@ const SearchBar = () => {
           color="primary"
           style={{ marginLeft: "2em" }}
           onClick={handleSubmit}
+          className={classes.button}
         >
           SEARCH
         </Button>

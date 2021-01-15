@@ -7,6 +7,7 @@ const H1 = styled.h1`
   align-items: center;
   font-family: "Montserrat", sans-serif;
   font-size: 2.4rem;
+  color: #043353;
 `;
 
 const Header = () => {

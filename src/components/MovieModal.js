@@ -17,20 +17,34 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     zIndex: "2000",
     right: ".5em",
+    color: "white",
   },
 }));
 
 const H1 = styled.h1`
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: #043353;
+  @media (max-width: 768px) {
+    margin: 0.5em;
+    font-size: 1.8rem;
+  }
 `;
 
 const POverview = styled.p`
   max-width: 25em;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  @media (max-width: 768px) {
+    max-width: 20em;
+    margin: 1em;
+  }
 `;
 
 const PBold = styled.p`
   font-weight: bold;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const MovieModal = (props) => {
@@ -76,7 +90,7 @@ const MovieModal = (props) => {
         </Grid>
       </Grid>
       <IconButton className={classes.closeIcon} onClick={handleClose}>
-        <CloseIcon color="primary" />
+        <CloseIcon color="white" />
       </IconButton>
     </Dialog>
   );
