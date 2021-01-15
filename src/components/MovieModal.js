@@ -90,7 +90,7 @@ const MovieModal = (props) => {
         </Grid>
       </Grid>
       <IconButton className={classes.closeIcon} onClick={handleClose}>
-        <CloseIcon color="white" />
+        <CloseIcon color="primary" />
       </IconButton>
     </Dialog>
   );
