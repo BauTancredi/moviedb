@@ -85,7 +85,7 @@ const MovieModal = (props) => {
             Rating:
             {new Date(movie.release_date) > new Date()
               ? " Not available"
-              : movie.vote_average}
+              : ` ${movie.vote_average}`}
           </PBold>
         </Grid>
       </Grid>
